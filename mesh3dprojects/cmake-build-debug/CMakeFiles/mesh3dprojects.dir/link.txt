@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/mesh3dprojects.dir/main.cpp.o  -o mesh3dprojects 
