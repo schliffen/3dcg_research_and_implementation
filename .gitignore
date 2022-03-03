@@ -1,0 +1,10 @@
+*.npy
+*.gif
+*.png
+*.mkv
+*.csv
+*.pkl
+*.pyc
+*.bin
+*/.idea/*
+*/cmake-build-debug/*
