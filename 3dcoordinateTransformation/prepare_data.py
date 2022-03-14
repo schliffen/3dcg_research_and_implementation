@@ -83,8 +83,8 @@ def collect_data(visualize=False):
         datapr = video_handler()
 
 
-    trgt_player = [1834, 2002, 1949, 2160 ] # bounding box of the target player in the first frame [xmin, ymin, xmax, ymax]
-
+    # trgt_player = [1834, 2002, 1949, 2160 ] # bounding box of the target player in the first frame [xmin, ymin, xmax, ymax]
+    trgt_player = [1894, 1459, 1936, 1609]
     # dictionary to store extracted data in the following order
     # frame number list, target player id list (the get keypoints of tracking player) as it changes in different frames
     # list of keypoints, list of bounding boxes, list of 3D keypoints
@@ -103,7 +103,10 @@ def collect_data(visualize=False):
             frame = datapr.get_frame(int(kf)) # read the frame image for visualization
 
         # get the player id with the max iou with target player to track
-        iou_max, ki, xmin, ymin, xmax, ymax = get_bbox_max_iou(player_2d_bbox[0][kf], trgt_player)
+        try:
+            iou_max, ki, xmin, ymin, xmax, ymax = get_bbox_max_iou(player_2d_bbox[0][kf], trgt_player)
+        except:
+            continue
         # ki: local player id of max iou with target
         # keep data only if max_iou > 0.4
         if iou_max>.4:
@@ -149,7 +152,7 @@ def collect_data(visualize=False):
 
                 image_ax.close()
     # save collected track data to use in 3d reconstruction
-    np.save("data/tracking_bbox_kpoints_2d_3d_forTest.npy", [tracking_playerp])
+    np.save("data/tracking_bbox_kpoints_2d_3d_forTest_2.npy", [tracking_playerp])
 
 
 

@@ -333,12 +333,18 @@ if __name__=='__main__':
 
     # this part is for testing the class to see if its working fine
 
-    datastram = data_handler("data/pose3d_data/df_kpt.csv", "data/pose3d_data/df_pose_local.csv",
-                            "data/pose3d_data/df_pose_local.csv", "data/pose3d_data/df_track.csv",
-                            "data/pose3d_data/camera_smooth.csv", "data/pose3d_data/df_sample_output.csv")
+    datastram = data_handler( kpt2d_path="data/pose3d_data/df_kpt.csv", pose_local_path="data/pose3d_data/df_pose_local.csv",
+                             track_path="data/pose3d_data/df_track.csv",
+                              camera_params_path="data/pose3d_data/camera_smooth.csv",
+                              save_path="data/pose3d_data/df_sample_output.csv")
 
     kpt_2d = datastram.get_track_bboxs()
     np.save("data/frame_bboxes_raw.npy", [kpt_2d])
+
+
+    camparam_ordered = datastram.get_camera_params()
+
+    np.save("data/single_test_cam_params.npy", [camparam_ordered])
 
     print('finished!')
 

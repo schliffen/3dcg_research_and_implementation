@@ -57,8 +57,8 @@ def create_animation(smoothed_track):
         fig.tight_layout()
         # save the processed frame
         plt.savefig(f"results/track_{n}.png")
-        plt.close()
-        # fig.show()
+        # plt.close()
+        fig.show()
     # Use pillow to open all saved frames
     images = [Image.open(f"results/track_{i}.png") for i in range(n)]
     # creatng animation from processed frames
