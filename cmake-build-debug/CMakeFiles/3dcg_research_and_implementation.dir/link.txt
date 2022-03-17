@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/3dcg_research_and_implementation.dir/main.cpp.o  -o 3dcg_research_and_implementation 
+/usr/bin/c++  -g   CMakeFiles/3dcg_research_and_implementation.dir/main.cpp.o  -o 3dcg_research_and_implementation  -lGL -lGLU -lglut 
