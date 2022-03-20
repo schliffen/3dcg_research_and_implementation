@@ -5,6 +5,8 @@
 #include<GL/glut.h>
 #include<math.h>
 #include <iostream>
+#include <stdlib.h>
+#include "time.h"
 #define pi 3.142857
 
 // Global Declaration
@@ -14,6 +16,7 @@ int c = 0, d = 0, left = 0, right = 0;
 int m = 0, j = 1, flag1 = 0, l = 1, flag2 = 0, n = 0, score = 0, count = 1;
 
 // Initialization function
+/*
 void myInit (void)
 {
     // Reset background color with white (since all three argument is 1.0)
@@ -153,28 +156,170 @@ void myDisplay(void)
         glutSwapBuffers();
     }
 }
+*/
+
+void timer(int);
+void displyfunc();
+void reshape(int, int);
+void init(){
+    glClearColor(0.3,.2,1.0,.8);
+    glEnable(GL_DEPTH_TEST);
+
+}
 
 
 // Driver Program
 int main (int argc, char** argv)
 {
+    srand(time(NULL));
     glutInit(&argc, argv);
 
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+//    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+    glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     // Declares window size
     glutInitWindowSize(1100, 600);
 
     // Declares window position which is (0, 0)
     // means lower left corner will indicate position (0, 0)
-    glutInitWindowPosition(0, 0);
+    glutInitWindowPosition(10.0, 10.0);
+
+
+
+    glutCreateWindow("begin");
+
+    glutDisplayFunc( displyfunc );
+    glutReshapeFunc(reshape);
+    glutTimerFunc(1000, timer, 0);
+    init();
+
 
     // Name to window
-    glutCreateWindow("Game");
-
+//    glutCreateWindow("Game");
     // keyboard function
-    glutKeyboardFunc(keyboard);
+//    glutKeyboardFunc(keyboard);
     // Call to myInit()
-    myInit();
-    glutDisplayFunc(myDisplay);
+//    myInit();
+//    glutDisplayFunc(myDisplay);
     glutMainLoop();
+}
+
+float x_position = -10.0;
+float y_position = 0.0;
+float z_position = 0.0;
+int state = 1;
+void displyfunc(){
+    //
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+    glLoadIdentity();
+    glPointSize(10.0);
+
+
+
+    glBegin( GL_POLYGON  ); //GL_LINE_STRIP
+    glColor3f(.5,0.8,0.);
+    glVertex3f( x_position,y_position + 1.0, z_position-15);
+    glVertex3f( x_position,y_position + -1.0,z_position-15);
+    glColor3f(.5,0.8,1.);
+    glVertex3f( x_position + 2.0,y_position + -1.0, z_position-15);
+    glVertex3f( x_position + 2.0, y_position + 1.0, z_position-15);
+    glEnd();
+
+    glTranslatef(5,5,-8.);
+    glRotatef(45 + 10*x_position, 1,0 ,0);
+    glRotatef(45 + 10*y_position, 0,1 ,0);
+    glRotatef(45 + 10*z_position, 0,0 ,1);
+    glBegin( GL_QUADS  ); //GL_LINE_STRIP
+    //front
+    glColor3f(1.0,0.0,0.0);
+    glVertex3f(-1.0,1.0,1.0);
+    glVertex3f(-1.0,-1.0,1.0);
+    glVertex3f(1.0,-1.0,1.0);
+    glVertex3f(1.0,1.0,1.0);
+    //back
+    glColor3f(0.0,1.0,0.0);
+    glVertex3f(1.0,1.0,-1.0);
+    glVertex3f(1.0,-1.0,-1.0);
+    glVertex3f(-1.0,-1.0,-1.0);
+    glVertex3f(-1.0,1.0,-1.0);
+    //right
+    glColor3f(0.0,0.0,1.0);
+    glVertex3f(1.0,1.0,1.0);
+    glVertex3f(1.0,-1.0,1.0);
+    glVertex3f(1.0,-1.0,-1.0);
+    glVertex3f(1.0,1.0,-1.0);
+    //left
+    glColor3f(1.0,1.0,0.0);
+    glVertex3f(-1.0,1.0,-1.0);
+    glVertex3f(-1.0,-1.0,-1.0);
+    glVertex3f(-1.0,-1.0,1.0);
+    glVertex3f(-1.0,1.0,1.0);
+    //top
+    glColor3f(0.0,1.0,1.0);
+    glVertex3f(-1.0,1.0,-1.0);
+    glVertex3f(-1.0,1.0,1.0);
+    glVertex3f(1.0,1.0,1.0);
+    glVertex3f(1.0,1.0,-1.0);
+    //bottom
+    glColor3f(1.0,0.0,1.0);
+    glVertex3f(-1.0,-1.0,-1.0);
+    glVertex3f(-1.0,-1.0,1.0);
+    glVertex3f(1.0,-1.0,1.0);
+    glVertex3f(1.0,-1.0,-1.0);
+    glEnd();
+
+
+//    glFlush();
+    glutSwapBuffers();
+}
+
+void reshape(int w, int h){
+    glViewport(0,0, (GLsizei) w, (GLsizei) h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //
+    //gluOrtho2D(-10,10,-10,10);
+    gluPerspective(90, 1.5, 2.0, 50.0);
+    glMatrixMode(GL_MODELVIEW);
+
+}
+
+void timer(int){
+    glutPostRedisplay();
+    glutTimerFunc(100/2, timer,0);
+
+    float xrnd = rand()%10-5;
+    float yrnd= rand()%10-5;
+    float zrnd= rand()%10-5;
+
+    x_position += (xrnd+.5)/5;
+    y_position += (yrnd+.5)/5;
+    z_position += (zrnd+.5)/5;
+
+    if (x_position > 8)
+        x_position = 8;
+    if (x_position < -10.)
+        x_position = -10;
+
+    if (y_position > 9)
+        y_position = 9;
+    if (y_position < -9.)
+        y_position = -9.0;
+
+    /*
+    switch(state){
+        case 1:
+            if (x_position < 8)
+                x_position += .15;
+            else
+                state = -1;
+            break;
+        case -1:
+            if (x_position > -10.0)
+                x_position -= .15;
+            else
+                state = 1;
+            break;
+    }
+    */
+
 }

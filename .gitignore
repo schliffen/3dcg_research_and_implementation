@@ -1,2 +1,2 @@
 *.pyc
-cmake-build-debug/*
+*/cmake-build-debug/*

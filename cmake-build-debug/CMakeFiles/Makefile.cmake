@@ -15,8 +15,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXInformation.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake"
-  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeFindCodeBlocks.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeGenericSystem.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
@@ -35,7 +33,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/UnixPaths.cmake"
-  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:
