@@ -10,10 +10,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/include/opencv4"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/CMakeFiles/arlib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

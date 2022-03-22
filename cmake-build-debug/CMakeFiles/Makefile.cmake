@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.17.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeSystem.cmake"
+  "../src_v1/CMakeLists.txt"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCInformation.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXInformation.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -20,19 +21,29 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CheckCSourceCompiles.cmake"
+  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CheckIncludeFile.cmake"
+  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/CheckLibraryExists.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-C.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-CXX.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/FindCUDA.cmake"
+  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/FindCUDA/select_compute_arch.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/FindOpenGL.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageMessage.cmake"
+  "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/FindThreads.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU-C.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU-CXX.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux.cmake"
   "/home/ek/clion-20/bin/cmake/linux/share/cmake-3.17/Modules/Platform/UnixPaths.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVConfig.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVModules.cmake"
   )
 
 # The corresponding makefile is:
@@ -44,9 +55,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src_v1/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/3dcg_research_and_implementation.dir/DependInfo.cmake"
+  "src_v1/CMakeFiles/3dcg_research_and_implementation.dir/DependInfo.cmake"
   )
