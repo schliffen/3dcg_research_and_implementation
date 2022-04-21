@@ -1,3 +1,5 @@
 /home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/CMakeFiles/3dcg_research_and_implementation.dir
+/home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/OpenGLSharma/CMakeFiles/rebuild_cache.dir
+/home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/OpenGLSharma/CMakeFiles/edit_cache.dir
+/home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug/OpenGLSharma/CMakeFiles/3dcg_research_and_implementation.dir

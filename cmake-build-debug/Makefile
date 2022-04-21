@@ -140,35 +140,8 @@ depend:
 
 # fast build rule for target.
 3dcg_research_and_implementation/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/3dcg_research_and_implementation.dir/build.make CMakeFiles/3dcg_research_and_implementation.dir/build
+	$(MAKE) $(MAKESILENT) -f OpenGLSharma/CMakeFiles/3dcg_research_and_implementation.dir/build.make OpenGLSharma/CMakeFiles/3dcg_research_and_implementation.dir/build
 .PHONY : 3dcg_research_and_implementation/fast
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/3dcg_research_and_implementation.dir/build.make CMakeFiles/3dcg_research_and_implementation.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/3dcg_research_and_implementation.dir/build.make CMakeFiles/3dcg_research_and_implementation.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/3dcg_research_and_implementation.dir/build.make CMakeFiles/3dcg_research_and_implementation.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -179,9 +152,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 3dcg_research_and_implementation"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 
