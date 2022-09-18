@@ -1,4 +1,1 @@
-/home/ek/clion-20/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ek/ResearchProjects/3dcg_research_and_implementation
--- Configuring done
--- Generating done
--- Build files have been written to: /home/ek/ResearchProjects/3dcg_research_and_implementation/cmake-build-debug
+CMakeLists.txt not found in /home/ek/ResearchProjects/3dcg_research_and_implementation Select CMakeLists.txt

@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Description": "slam_01",
+        "Id": "slam_01",
+        "Name": "slam_01",
+        "ServiceTypes": [
+            "KDevelop/Plugin"
+        ]
+    },
+    "X-KDevelop-Category": "Global",
+    "X-KDevelop-Mode": "GUI"
+}

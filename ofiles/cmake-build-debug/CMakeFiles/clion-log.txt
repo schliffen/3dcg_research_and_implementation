@@ -1,0 +1,81 @@
+/home/ek/clion-20/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ek/ResearchProjects/3dcg_research_and_implementation
+-- Configuring done
+CMake Error at CMakeLists.txt:39 (add_executable):
+  Cannot find source file:
+
+    pose_estimation_3d3d.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:34 (add_executable):
+  Cannot find source file:
+
+    pose_estimation_3d2d.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:20 (add_executable):
+  Cannot find source file:
+
+    orb_cv.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:23 (add_executable):
+  Cannot find source file:
+
+    orb_self.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:27 (add_executable):
+  Cannot find source file:
+
+    pose_estimation_2d2d.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:31 (add_executable):
+  Cannot find source file:
+
+    triangulation.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:39 (add_executable):
+  No SOURCES given to target: pose_estimation_3d3d
+
+
+CMake Error at CMakeLists.txt:34 (add_executable):
+  No SOURCES given to target: pose_estimation_3d2d
+
+
+CMake Error at CMakeLists.txt:20 (add_executable):
+  No SOURCES given to target: orb_cv
+
+
+CMake Error at CMakeLists.txt:23 (add_executable):
+  No SOURCES given to target: orb_self
+
+
+CMake Error at CMakeLists.txt:27 (add_executable):
+  No SOURCES given to target: pose_estimation_2d2d
+
+
+CMake Error at CMakeLists.txt:31 (add_executable):
+  No SOURCES given to target: triangulation
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
