@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ek/ResearchProjects/3dcg_research_and_implementation/slam_01/build",
+  "command": "/usr/bin/c++ -isystem /usr/local/include/opencv4 -isystem /usr/include/eigen3 -g -o CMakeFiles/slam_01.dir/main.cpp.o -c /home/ek/ResearchProjects/3dcg_research_and_implementation/slam_01/main.cpp",
+  "file": "/home/ek/ResearchProjects/3dcg_research_and_implementation/slam_01/main.cpp"
+}
+]

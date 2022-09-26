@@ -15,19 +15,6 @@
 ########################
 
 //Path to a program.
-APPSTREAMCLI:FILEPATH=/usr/bin/appstreamcli
-
-//Build the project with gcov support
-BUILD_COVERAGE:BOOL=OFF
-
-//If enabled, shared libs will be built by default, otherwise static
-// libs
-BUILD_SHARED_LIBS:BOOL=TRUE
-
-//Build the testing tree.
-BUILD_TESTING:BOOL=ON
-
-//Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
 //Path to a program.
@@ -111,7 +98,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_EXPORT_COMPILE_COMMANDS:UNINITIALIZED=ON
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=/usr
+CMAKE_INSTALL_PREFIX:PATH=/usr/local
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
@@ -219,180 +206,156 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//The directory containing a CMake configuration file for ECM.
-ECM_DIR:PATH=/usr/share/ECM/cmake
+//Compile device code in 64 bit mode
+CUDA_64_BIT_DEVICE_CODE:BOOL=ON
 
-//application desktop files (DATAROOTDIR/applications)
-KDE_INSTALL_APPDIR:PATH=
+//Attach the build rule to the CUDA source file.  Enable only when
+// the CUDA source file is added to at most one target.
+CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE:BOOL=ON
 
-//autostart files (CONFDIR/autostart)
-KDE_INSTALL_AUTOSTARTDIR:PATH=
+//Generate and parse .cubin files in Device mode.
+CUDA_BUILD_CUBIN:BOOL=OFF
 
-//user executables (EXECROOTDIR/bin)
-KDE_INSTALL_BINDIR:PATH=
+//Build in Emulation mode
+CUDA_BUILD_EMULATION:BOOL=OFF
 
-//CMake packages, including config files (LIBDIR/cmake)
-KDE_INSTALL_CMAKEPACKAGEDIR:PATH=
+//"cudart" library
+CUDA_CUDART_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcudart.so
 
-//application configuration files (SYSCONFDIR/xdg)
-KDE_INSTALL_CONFDIR:PATH=
+//"cuda" library (older versions only).
+CUDA_CUDA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcuda.so
 
-//read-only architecture-independent data (DATAROOTDIR)
-KDE_INSTALL_DATADIR:PATH=
+//Directory to put all the output files.  If blank it will default
+// to the CMAKE_CURRENT_BINARY_DIR
+CUDA_GENERATED_OUTPUT_DIR:PATH=
 
-//read-only architecture-independent data root (share)
-KDE_INSTALL_DATAROOTDIR:PATH=
+//Generated file extension
+CUDA_HOST_COMPILATION_CPP:BOOL=ON
 
-//D-Bus (DATAROOTDIR/dbus-1)
-KDE_INSTALL_DBUSDIR:PATH=
+//Host side compiler used by NVCC
+CUDA_HOST_COMPILER:FILEPATH=/usr/bin/cc
 
-//D-Bus interfaces (DBUSDIR/interfaces)
-KDE_INSTALL_DBUSINTERFACEDIR:PATH=
+//Path to a program.
+CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda/bin/nvcc
 
-//D-Bus session services (DBUSDIR/services)
-KDE_INSTALL_DBUSSERVICEDIR:PATH=
+//Semi-colon delimit multiple arguments. during all build types.
+CUDA_NVCC_FLAGS:STRING=
 
-//D-Bus system services (DBUSDIR/system-services)
-KDE_INSTALL_DBUSSYSTEMSERVICEDIR:PATH=
+//Semi-colon delimit multiple arguments. during DEBUG builds.
+CUDA_NVCC_FLAGS_DEBUG:STRING=
 
-//desktop directories (DATAROOTDIR/desktop-directories)
-KDE_INSTALL_DESKTOPDIR:PATH=
+//Semi-colon delimit multiple arguments. during MINSIZEREL builds.
+CUDA_NVCC_FLAGS_MINSIZEREL:STRING=
 
-//documentation bundles generated using kdoctools (DATAROOTDIR/doc/HTML)
-KDE_INSTALL_DOCBUNDLEDIR:PATH=
+//Semi-colon delimit multiple arguments. during RELEASE builds.
+CUDA_NVCC_FLAGS_RELEASE:STRING=
 
-//executables and libraries ()
-KDE_INSTALL_EXECROOTDIR:PATH=
+//Semi-colon delimit multiple arguments. during RELWITHDEBINFO
+// builds.
+CUDA_NVCC_FLAGS_RELWITHDEBINFO:STRING=
 
-//icons (DATAROOTDIR/icons)
-KDE_INSTALL_ICONDIR:PATH=
+//"OpenCL" library
+CUDA_OpenCL_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libOpenCL.so
 
-//C and C++ header files (include)
-KDE_INSTALL_INCLUDEDIR:PATH=
+//Propagate C/CXX_FLAGS and friends to the host compiler via -Xcompile
+CUDA_PROPAGATE_HOST_FLAGS:BOOL=ON
 
-//info documentation (DATAROOTDIR/info)
-KDE_INSTALL_INFODIR:PATH=
+//Path to a file.
+CUDA_SDK_ROOT_DIR:PATH=CUDA_SDK_ROOT_DIR-NOTFOUND
 
-//Java AAR/JAR files for Android (jar)
-KDE_INSTALL_JARDIR:PATH=
+//Compile CUDA objects with separable compilation enabled.  Requires
+// CUDA 5.0+
+CUDA_SEPARABLE_COMPILATION:BOOL=OFF
 
-//kconfig description files (DATAROOTDIR/config.kcfg)
-KDE_INSTALL_KCFGDIR:PATH=
+//Path to a file.
+CUDA_TOOLKIT_INCLUDE:PATH=/usr/local/cuda/include
 
-//kconf_update scripts (DATAROOTDIR/kconf_update)
-KDE_INSTALL_KCONFUPDATEDIR:PATH=
+//Toolkit location.
+CUDA_TOOLKIT_ROOT_DIR:PATH=/usr/local/cuda
 
-//knotify description files (DATAROOTDIR/knotifications5)
-KDE_INSTALL_KNOTIFY5RCDIR:PATH=
+//Use the static version of the CUDA runtime library if available
+CUDA_USE_STATIC_CUDA_RUNTIME:BOOL=ON
 
-//services for KDE Frameworks 5 (DATAROOTDIR/kservices5)
-KDE_INSTALL_KSERVICES5DIR:PATH=
+//Print out the commands run while compiling the CUDA source file.
+//  With the Makefile generator this defaults to VERBOSE variable
+// specified on the command line, but can be forced on with this
+// option.
+CUDA_VERBOSE_BUILD:BOOL=OFF
 
-//service types for KDE Frameworks 5 (DATAROOTDIR/kservicetypes5)
-KDE_INSTALL_KSERVICETYPES5DIR:PATH=
+//Version of CUDA as computed from nvcc.
+CUDA_VERSION:STRING=11.6
 
-//Kapptemplate and Kdevelop templates (DATAROOTDIR/kdevappwizard/templates)
-KDE_INSTALL_KTEMPLATESDIR:PATH=
+//"cublas" library
+CUDA_cublas_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcublas.so
 
-//kxmlgui .rc files (DATAROOTDIR/kxmlgui5)
-KDE_INSTALL_KXMLGUI5DIR:PATH=
+//"cudadevrt" library
+CUDA_cudadevrt_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcudadevrt.a
 
-//object code libraries (EXECROOTDIR/lib/x86_64-linux-gnu)
-KDE_INSTALL_LIBDIR:PATH=
+//static CUDA runtime library
+CUDA_cudart_static_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcudart_static.a
 
-//executables for internal use by programs and libraries (LIBDIR/libexec)
-KDE_INSTALL_LIBEXECDIR:PATH=
+//"cufft" library
+CUDA_cufft_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcufft.so
 
-//knotify description files (DATAROOTDIR/locale)
-KDE_INSTALL_LOCALEDIR:PATH=
+//"cupti" library
+CUDA_cupti_LIBRARY:FILEPATH=CUDA_cupti_LIBRARY-NOTFOUND
 
-//modifiable single-machine data (var)
-KDE_INSTALL_LOCALSTATEDIR:PATH=
+//"curand" library
+CUDA_curand_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcurand.so
 
-//Qt Logging categories files (DATAROOTDIR/qlogging-categories5)
-KDE_INSTALL_LOGGINGCATEGORIESDIR:PATH=
+//"cusolver" library
+CUDA_cusolver_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcusolver.so
 
-//man documentation (DATAROOTDIR/man)
-KDE_INSTALL_MANDIR:PATH=
+//"cusparse" library
+CUDA_cusparse_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcusparse.so
 
-//AppStream component metadata (DATAROOTDIR/metainfo)
-KDE_INSTALL_METAINFODIR:PATH=
+//"nppc" library
+CUDA_nppc_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppc.so
 
-//mime description files (DATAROOTDIR/mime/packages)
-KDE_INSTALL_MIMEDIR:PATH=
+//"nppi" library
+CUDA_nppi_LIBRARY:FILEPATH=CUDA_nppi_LIBRARY-NOTFOUND
 
-//Plugins (QTPLUGINDIR)
-KDE_INSTALL_PLUGINDIR:PATH=
+//"nppial" library
+CUDA_nppial_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppial.so
 
-//Installs /usr/prefix.sh that sets up the necessary environment
-// variables
-KDE_INSTALL_PREFIX_SCRIPT:BOOL=OFF
+//"nppicc" library
+CUDA_nppicc_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppicc.so
 
-//documentation bundles in QCH format (DATAROOTDIR/doc/qch)
-KDE_INSTALL_QCHDIR:PATH=
+//"nppidei" library
+CUDA_nppidei_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppidei.so
 
-//QtQuick2 imports (/usr/lib/x86_64-linux-gnu/qt5/qml)
-KDE_INSTALL_QMLDIR:PATH=
+//"nppif" library
+CUDA_nppif_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppif.so
 
-//Qt plugins (/usr/lib/x86_64-linux-gnu/qt5/plugins)
-KDE_INSTALL_QTPLUGINDIR:PATH=
+//"nppig" library
+CUDA_nppig_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppig.so
 
-//documentation bundles in QCH format for Qt-extending libraries
-// (/usr/share/qt5/doc)
-KDE_INSTALL_QTQCHDIR:PATH=
+//"nppim" library
+CUDA_nppim_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppim.so
 
-//QtQuick1 imports (/usr/lib/x86_64-linux-gnu/qt5/imports)
-KDE_INSTALL_QTQUICKIMPORTSDIR:PATH=
+//"nppist" library
+CUDA_nppist_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppist.so
 
-//system admin executables (EXECROOTDIR/sbin)
-KDE_INSTALL_SBINDIR:PATH=
+//"nppisu" library
+CUDA_nppisu_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppisu.so
 
-//modifiable architecture-independent data (com)
-KDE_INSTALL_SHAREDSTATEDIR:PATH=
+//"nppitc" library
+CUDA_nppitc_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppitc.so
 
-//sound files (DATAROOTDIR/sounds)
-KDE_INSTALL_SOUNDDIR:PATH=
+//"npps" library
+CUDA_npps_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnpps.so
 
-//read-only single-machine data (/etc)
-KDE_INSTALL_SYSCONFDIR:PATH=
+//"nvToolsExt" library
+CUDA_nvToolsExt_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnvToolsExt.so
 
-//Systemd units (CMAKE_INSTALL_PREFIX/lib/systemd)
-KDE_INSTALL_SYSTEMDUNITDIR:PATH=
+//Path to a library.
+CUDA_rt_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 
-//Systemd user units (SYSTEMDUNITDIR/user)
-KDE_INSTALL_SYSTEMDUSERUNITDIR:PATH=
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
 
-//templates (DATAROOTDIR/templates)
-KDE_INSTALL_TEMPLATEDIR:PATH=
-
-//Install mkspecs files, QCH files for Qt-based libs, Plugins and
-// Imports to the Qt 5 install dir
-KDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
-
-//desktop wallpaper images (DATAROOTDIR/wallpapers)
-KDE_INSTALL_WALLPAPERDIR:PATH=
-
-//Automatically 'make fetch-translations`
-KDE_L10N_AUTO_TRANSLATIONS:BOOL=OFF
-
-//Branch from l10n.kde.org to fetch from: trunk | stable | lts
-// | trunk_kde4 | stable_kde4
-KDE_L10N_BRANCH:STRING=trunk
-
-//Fetch translations when KDECMakeSettings.cmake is processed.
-KDE_L10N_SYNC_TRANSLATIONS:BOOL=OFF
-
-//Prevent an "uninstall" target from being generated.
-KDE_SKIP_UNINSTALL_TARGET:BOOL=OFF
-
-//The directory containing a CMake configuration file for KDevPlatform.
-KDevPlatform_DIR:PATH=KDevPlatform_DIR-NOTFOUND
-
-//Location of the Qt5 qmake executable
-QMAKE_EXECUTABLE:FILEPATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
-
-//The directory containing a CMake configuration file for Qt5Core.
-Qt5Core_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+//The directory containing a CMake configuration file for Pangolin.
+Pangolin_DIR:PATH=/usr/local/lib/cmake/Pangolin
 
 //Value Computed by CMake
 slam_01_BINARY_DIR:STATIC=/home/ek/ResearchProjects/3dcg_research_and_implementation/slam_01/build
@@ -482,6 +445,14 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=
+//Have library pthreads
+CMAKE_HAVE_PTHREADS_CREATE:INTERNAL=
+//Have library pthread
+CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/ek/ResearchProjects/3dcg_research_and_implementation/slam_01
@@ -547,104 +518,107 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//Test HAVE_DATE_TIME
-HAVE_DATE_TIME:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_APPDIR
-KDE_INSTALL_APPDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_AUTOSTARTDIR
-KDE_INSTALL_AUTOSTARTDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_BINDIR
-KDE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_CMAKEPACKAGEDIR
-KDE_INSTALL_CMAKEPACKAGEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_CONFDIR
-KDE_INSTALL_CONFDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DATADIR
-KDE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DATAROOTDIR
-KDE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DBUSDIR
-KDE_INSTALL_DBUSDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DBUSINTERFACEDIR
-KDE_INSTALL_DBUSINTERFACEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DBUSSERVICEDIR
-KDE_INSTALL_DBUSSERVICEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DBUSSYSTEMSERVICEDIR
-KDE_INSTALL_DBUSSYSTEMSERVICEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DESKTOPDIR
-KDE_INSTALL_DESKTOPDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_DOCBUNDLEDIR
-KDE_INSTALL_DOCBUNDLEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_EXECROOTDIR
-KDE_INSTALL_EXECROOTDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_ICONDIR
-KDE_INSTALL_ICONDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_INCLUDEDIR
-KDE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_INFODIR
-KDE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_JARDIR
-KDE_INSTALL_JARDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KCFGDIR
-KDE_INSTALL_KCFGDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KCONFUPDATEDIR
-KDE_INSTALL_KCONFUPDATEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KNOTIFY5RCDIR
-KDE_INSTALL_KNOTIFY5RCDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KSERVICES5DIR
-KDE_INSTALL_KSERVICES5DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KSERVICETYPES5DIR
-KDE_INSTALL_KSERVICETYPES5DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KTEMPLATESDIR
-KDE_INSTALL_KTEMPLATESDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_KXMLGUI5DIR
-KDE_INSTALL_KXMLGUI5DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_LIBDIR
-KDE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_LIBEXECDIR
-KDE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_LOCALEDIR
-KDE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_LOCALSTATEDIR
-KDE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_LOGGINGCATEGORIESDIR
-KDE_INSTALL_LOGGINGCATEGORIESDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_MANDIR
-KDE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_METAINFODIR
-KDE_INSTALL_METAINFODIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_MIMEDIR
-KDE_INSTALL_MIMEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_PLUGINDIR
-KDE_INSTALL_PLUGINDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_QCHDIR
-KDE_INSTALL_QCHDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_QMLDIR
-KDE_INSTALL_QMLDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_QTPLUGINDIR
-KDE_INSTALL_QTPLUGINDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_QTQCHDIR
-KDE_INSTALL_QTQCHDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_QTQUICKIMPORTSDIR
-KDE_INSTALL_QTQUICKIMPORTSDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_SBINDIR
-KDE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_SHAREDSTATEDIR
-KDE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_SOUNDDIR
-KDE_INSTALL_SOUNDDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_SYSCONFDIR
-KDE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_SYSTEMDUNITDIR
-KDE_INSTALL_SYSTEMDUNITDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_SYSTEMDUSERUNITDIR
-KDE_INSTALL_SYSTEMDUSERUNITDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_TEMPLATEDIR
-KDE_INSTALL_TEMPLATEDIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: KDE_INSTALL_WALLPAPERDIR
-KDE_INSTALL_WALLPAPERDIR-ADVANCED:INTERNAL=1
-//Have symbol __GLIBC__
-LIBC_IS_GLIBC:INTERNAL=1
-//Test _OFFT_IS_64BIT
-_OFFT_IS_64BIT:INTERNAL=1
+//ADVANCED property for variable: CUDA_64_BIT_DEVICE_CODE
+CUDA_64_BIT_DEVICE_CODE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE
+CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_BUILD_CUBIN
+CUDA_BUILD_CUBIN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_BUILD_EMULATION
+CUDA_BUILD_EMULATION-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_CUDART_LIBRARY
+CUDA_CUDART_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_CUDA_LIBRARY
+CUDA_CUDA_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_GENERATED_OUTPUT_DIR
+CUDA_GENERATED_OUTPUT_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_HOST_COMPILATION_CPP
+CUDA_HOST_COMPILATION_CPP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_EXECUTABLE
+CUDA_NVCC_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS
+CUDA_NVCC_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_DEBUG
+CUDA_NVCC_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_MINSIZEREL
+CUDA_NVCC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_RELEASE
+CUDA_NVCC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_RELWITHDEBINFO
+CUDA_NVCC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_OpenCL_LIBRARY
+CUDA_OpenCL_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_PROPAGATE_HOST_FLAGS
+CUDA_PROPAGATE_HOST_FLAGS-ADVANCED:INTERNAL=1
+//This is the value of the last time CUDA_SDK_ROOT_DIR was set
+// successfully.
+CUDA_SDK_ROOT_DIR_INTERNAL:INTERNAL=CUDA_SDK_ROOT_DIR-NOTFOUND
+//ADVANCED property for variable: CUDA_SEPARABLE_COMPILATION
+CUDA_SEPARABLE_COMPILATION-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_TOOLKIT_INCLUDE
+CUDA_TOOLKIT_INCLUDE-ADVANCED:INTERNAL=1
+//This is the value of the last time CUDA_TOOLKIT_ROOT_DIR was
+// set successfully.
+CUDA_TOOLKIT_ROOT_DIR_INTERNAL:INTERNAL=/usr/local/cuda
+//This is the value of the last time CUDA_TOOLKIT_TARGET_DIR was
+// set successfully.
+CUDA_TOOLKIT_TARGET_DIR_INTERNAL:INTERNAL=/usr/local/cuda
+//ADVANCED property for variable: CUDA_VERBOSE_BUILD
+CUDA_VERBOSE_BUILD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_VERSION
+CUDA_VERSION-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cublas_LIBRARY
+CUDA_cublas_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cudadevrt_LIBRARY
+CUDA_cudadevrt_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cudart_static_LIBRARY
+CUDA_cudart_static_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cufft_LIBRARY
+CUDA_cufft_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cupti_LIBRARY
+CUDA_cupti_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_curand_LIBRARY
+CUDA_curand_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cusolver_LIBRARY
+CUDA_cusolver_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cusparse_LIBRARY
+CUDA_cusparse_LIBRARY-ADVANCED:INTERNAL=1
+//Location of make2cmake.cmake
+CUDA_make2cmake:INTERNAL=/usr/local/share/cmake-3.22/Modules/FindCUDA/make2cmake.cmake
+//ADVANCED property for variable: CUDA_nppc_LIBRARY
+CUDA_nppc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppi_LIBRARY
+CUDA_nppi_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppial_LIBRARY
+CUDA_nppial_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppicc_LIBRARY
+CUDA_nppicc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppidei_LIBRARY
+CUDA_nppidei_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppif_LIBRARY
+CUDA_nppif_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppig_LIBRARY
+CUDA_nppig_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppim_LIBRARY
+CUDA_nppim_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppist_LIBRARY
+CUDA_nppist_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppisu_LIBRARY
+CUDA_nppisu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppitc_LIBRARY
+CUDA_nppitc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_npps_LIBRARY
+CUDA_npps_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nvToolsExt_LIBRARY
+CUDA_nvToolsExt_LIBRARY-ADVANCED:INTERNAL=1
+//Location of parse_cubin.cmake
+CUDA_parse_cubin:INTERNAL=/usr/local/share/cmake-3.22/Modules/FindCUDA/parse_cubin.cmake
+//Location of run_nvcc.cmake
+CUDA_run_nvcc:INTERNAL=/usr/local/share/cmake-3.22/Modules/FindCUDA/run_nvcc.cmake
+//Details about finding CUDA
+FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr/local/cuda][/usr/local/cuda/bin/nvcc][/usr/local/cuda/include][/usr/local/cuda/lib64/libcudart_static.a][v11.6(11.6)]
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.5.2()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 

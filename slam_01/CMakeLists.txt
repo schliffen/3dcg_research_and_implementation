@@ -2,24 +2,28 @@ cmake_minimum_required(VERSION 3.0)
 
 project(slam_01)
 
-find_package(ECM "5.14.0" REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(ECMQtDeclareLoggingCategory)
-include(FeatureSummary)
 
-find_package(KDevPlatform 5.2.40 REQUIRED)
 
-add_subdirectory(src)
 
-# kdebugsettings file
-if (ECM_VERSION VERSION_GREATER "5.58.0")
-    install(FILES slam_01.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-else()
-    install(FILES slam_01.categories DESTINATION ${KDE_INSTALL_CONFDIR})
-endif()
 
-feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+find_package(OpenCV REQUIRED)
+find_package(Pangolin 0.4 REQUIRED)
+
+
+include_directories(
+        ${OpenCV_INCLUDE_DIRS}
+        ${Pangolin_INCLUDE_DIRS}
+        #${G2O_INCLUDE_DIRS}
+        #${Sophus_INCLUDE_DIRS}
+
+)
+
+
+
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+target_link_libraries( ${PROJECT_NAME}   ${Pangolin_LIBRARIES} )
+
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
